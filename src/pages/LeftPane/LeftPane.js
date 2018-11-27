@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
 
 const styles = theme => ({
   root: {
-    width: '100%',
+    width: '40vh',
     maxWidth: 360,
     height: '100%',
+    float: 'left',
     backgroundColor: theme.palette.background.paper
   },
 });
