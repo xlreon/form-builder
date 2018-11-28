@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
+import { Droppable } from 'react-drag-and-drop';
 
 const styles = {
   card: {
@@ -20,13 +21,19 @@ const styles = {
   },
 };
 
+
 function Form(props) {
-  const { classes } = props;
+    const { classes } = props;
 
   return (
-    <Card className={classes.card}>
-        <h1>Test Form</h1>
-    </Card>
+    <Droppable
+        types={['button']}
+        onDrop={(data) => console.log(data)}
+        >
+        <Card className={classes.card}>
+            <h1>Test Form</h1>
+        </Card>
+    </Droppable>
   );
 }
 

@@ -5,6 +5,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
+import ButtonItem from '../../components/ButtonItem';
 
 const styles = theme => ({
   root: {
@@ -21,9 +22,7 @@ function LeftPane(props) {
   return (
     <div className={classes.root}>
       <List component="nav">
-        <ListItem>
-          <ListItemText primary="Text" />
-        </ListItem>
+        <ButtonItem />
         <Divider />
       </List>
     </div>
