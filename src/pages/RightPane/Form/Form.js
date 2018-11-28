@@ -15,7 +15,10 @@ const styles = {
     zIndex: '1',
     display: 'inline-block',
     marginTop: '2vh',
-    marginBottom: '2vh'
+    marginBottom: '2vh',
+    paddingLeft: '3.5vh',
+    paddingTop: '2vh',
+    textAlign: 'left'
   },
   title: {
     fontSize: 14,
@@ -61,14 +64,16 @@ class Form extends React.Component {
     render() {
         const { classes, elements } = this.props;
         return (
-        <Card 
+        <Card
             className={classes.card} 
             onDragOver={(e) => this.onDragOver(e)}
             onDrop={(e) => this.onDrop(e)}
             >
+            {/* <div style={{width: '100%',height: '100%',float: "left"}}> */}
             {elements.map( item => {
                 return this.itemBuilder(item)
             })}
+            {/* </div> */}
         </Card>
         );
     }
