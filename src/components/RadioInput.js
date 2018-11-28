@@ -79,10 +79,10 @@ class RadioInput extends React.Component {
 
     render() {
         return (
-            <div className="textBox">
-                {/* <MenuControl visibility={this.state.current ==  1 ? true : false}/> */}
-                {this.getCurrent(this.state.current)}
-            </div>
+            // <div className="textBox">
+                // {this.getCurrent(this.state.current)}
+            // </div>
+            this.getCurrent(this.state.current)
         );
     }
 }

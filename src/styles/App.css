@@ -24,18 +24,24 @@
 }
 
 .textBox {
-  width: 70vh;
-  margin-top: 0.5em;
+  width: 100%;
+  margin-top: 1em;
   height: 4vh;
   margin-right: 2em;
 }
 #textInput {
   height: 100%;
-  width: 100%;
-  font-size: 3vh
+  width: 80%;
+  font-size: 3vh;
+  float: left;
 }
 
 #textName {
   font-size: 3vh;
   font-weight: bold;
+}
+
+#menuBox {
+  width: 20%;
+  float: right;
 }

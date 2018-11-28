@@ -35,10 +35,13 @@ class TextInput extends React.Component {
                     id="textInput"
                     />
                     :
-                    <span id="textName">
-                        { this.state.text}
-                    </span> }
-                <MenuControl visibility={!this.state.isEdit}/>
+                    <span id="textInput">
+                        { 
+                            this.state.text
+                        }
+                    </span> 
+                    }
+                <MenuControl id="menuBox" visibility={!this.state.isEdit}/>
             </div>
         );
     }

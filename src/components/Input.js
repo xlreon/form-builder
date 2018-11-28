@@ -27,8 +27,6 @@ class Input extends React.Component {
     }
     render() {
         return (
-            // <span>
-            // <MenuControl visibility={!this.state.isEdit}/>
             <div className="textBox">
                 { this.state.isEdit 
                     ?
@@ -45,13 +43,13 @@ class Input extends React.Component {
                     <input 
                         placeholder={this.state.text}
                         size="35"
-                        id="textName"
+                        id="textInput"
                         value={this.state.value}
                         onChange={this.handleValue}
                         />
                 }
+                <MenuControl id="menuBox" visibility={!this.state.isEdit}/>
             </div>
-            // </span>
         );
     }
 }
