@@ -17,3 +17,8 @@
   position: relative;
   text-align: center;
 }
+
+.buttonInput {
+  width: 50vh;
+  margin-top: 0.5em;
+}

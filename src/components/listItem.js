@@ -6,7 +6,6 @@ import Divider from '@material-ui/core/Divider';
 class ButtonItem extends React.Component {
     
     onDragStart = (event, itemName) => {
-        console.log(itemName)
         event.dataTransfer.setData("itemName",itemName)
     }
 

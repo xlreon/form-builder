@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import { connect } from 'react-redux';
+import ButtonInput from '../../../components/ButtonInput';
 
 const styles = {
   card: {
@@ -30,7 +31,6 @@ class Form extends React.Component {
 
     onDrop = (event) => {
         var itemName = event.dataTransfer.getData("itemName")
-        console.log(itemName)
         this.props.dispatch({type: "ADDITEM", item: itemName})
     }
 
@@ -38,9 +38,19 @@ class Form extends React.Component {
         event.preventDefault();
     }
 
+    itemBuilder = (itemName) => {
+        console.log(itemName)
+        switch(itemName) {
+            case 'Button':
+                return <ButtonInput />
+            default:
+                return <h1>{itemName}</h1>
+        }
+
+    }
+
     render() {
         const { classes, elements } = this.props;
-        console.log(elements)
         return (
         <Card 
             className={classes.card} 
@@ -48,7 +58,7 @@ class Form extends React.Component {
             onDrop={(e) => this.onDrop(e)}
             >
             {elements.map( item => {
-                return <h1>{item}</h1>
+                return this.itemBuilder(item)
             })}
         </Card>
         );
