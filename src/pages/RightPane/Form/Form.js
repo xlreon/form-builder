@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import ButtonInput from '../../../components/ButtonInput';
 import TextInput from '../../../components/TextInput';
 import Input from '../../../components/Input';
+import RadioInput from '../../../components/RadioInput';
 
 const styles = {
   card: {
@@ -49,6 +50,8 @@ class Form extends React.Component {
                 return <TextInput />
             case 'Input':
                 return <Input />
+            case 'Radio':
+                return <RadioInput />
             default:
                 return <h1>{itemName}</h1>
         }

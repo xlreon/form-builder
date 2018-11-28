@@ -1,4 +1,5 @@
 import React from 'react';
+import TextField from '@material-ui/core/TextField';
 
 class Input extends React.Component {
     constructor(props) {
@@ -28,14 +29,15 @@ class Input extends React.Component {
             <div className="textBox">
                 { this.state.isEdit 
                     ?
-                    <input 
-                        placeholder="Enter Input PlaceHolder" 
-                        value={this.state.text}
-                        onChange={this.handleChange}
-                        onKeyDown={this.onEnter}
-                        size="35"
-                        id="textInput"
-                        />
+                    <TextField
+                    label="Enter Input placeholder and press enter"
+                    name="input"
+                    margin="normal"
+                    value={this.state.text}
+                    onChange={this.handleChange}
+                    onKeyDown={this.onEnter}
+                    id="textInput"
+                    />
                     :
                     <input 
                         placeholder={this.state.text}
