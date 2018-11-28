@@ -25,7 +25,7 @@ class ButtonInput extends React.Component {
     render() {
         return (
             <div className="buttonInput">
-                <Button variant="contained" color="primary">
+                <Button variant="contained" color="primary" style={{marginTop: '6vh'}}>
                     {
                         this.state.isEdit ? <input 
                                 placeholder="Button Name" 

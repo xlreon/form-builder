@@ -7,6 +7,7 @@ import ButtonInput from '../../../components/ButtonInput';
 import TextInput from '../../../components/TextInput';
 import Input from '../../../components/Input';
 import RadioInput from '../../../components/RadioInput';
+import DropDownInput from '../../../components/DropDownInput';
 
 const styles = {
   card: {
@@ -55,6 +56,8 @@ class Form extends React.Component {
                 return <Input />
             case 'Radio':
                 return <RadioInput />
+            case 'Drop Down':
+                return <DropDownInput />
             default:
                 return <h1>{itemName}</h1>
         }
