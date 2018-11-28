@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import { connect } from 'react-redux';
 import ButtonInput from '../../../components/ButtonInput';
+import TextInput from '../../../components/TextInput';
 
 const styles = {
   card: {
@@ -43,6 +44,8 @@ class Form extends React.Component {
         switch(itemName) {
             case 'Button':
                 return <ButtonInput />
+            case 'Text':
+                return <TextInput />
             default:
                 return <h1>{itemName}</h1>
         }

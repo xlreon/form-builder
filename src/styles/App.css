@@ -22,3 +22,20 @@
   width: 50vh;
   margin-top: 0.5em;
 }
+
+.textBox {
+  width: 50vh;
+  margin-top: 0.5em;
+  height: 4vh;
+}
+
+#textInput {
+  height: 100%;
+  width: 100%;
+  font-size: 3vh
+}
+
+#textName {
+  font-size: 3vh;
+  font-weight: bold;
+}
