@@ -25,12 +25,11 @@
 
 .textBox {
   width: 100%;
-  margin-top: 1em;
-  height: 4vh;
-  margin-right: 2em;
+  height: wrap;
+  float: left;
 }
 #textInput {
-  height: 100%;
+  height: wrap;
   width: 80%;
   font-size: 3vh;
   float: left;
@@ -43,5 +42,5 @@
 
 #menuBox {
   width: 20%;
-  float: right;
+  float: left;
 }

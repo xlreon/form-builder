@@ -8,7 +8,7 @@ import TextInput from '../../../components/TextInput';
 import Input from '../../../components/Input';
 import RadioInput from '../../../components/RadioInput';
 import DropDownInput from '../../../components/DropDownInput';
-import MenuGrid from '../../../components/MenuGrid';
+
 
 const styles = {
   card: {
@@ -46,15 +46,17 @@ class Form extends React.Component {
         console.log(itemName)
         switch(itemName) {
             case 'Button':
-                return <MenuGrid child={<ButtonInput />} />
+                return (<div>
+                            <ButtonInput />
+                        </div>)
             case 'Text':
-                return <MenuGrid child={<TextInput />} />
+                return <div><TextInput /></div>
             case 'Input':
-                return <MenuGrid child={<Input />} />
+                return <div><Input /></div>
             case 'Radio':
-                return <MenuGrid child={<RadioInput />} />
+                return <div><RadioInput /></div>
             case 'Drop Down':
-                return <MenuGrid child={<DropDownInput />} />
+                return <div><DropDownInput /></div>
             default:
                 return <h1>{itemName}</h1>
         }
@@ -69,11 +71,9 @@ class Form extends React.Component {
             onDragOver={(e) => this.onDragOver(e)}
             onDrop={(e) => this.onDrop(e)}
             >
-            {/* <div style={{width: '100%',height: '100%',float: "left"}}> */}
             {elements.map( item => {
                 return this.itemBuilder(item)
             })}
-            {/* </div> */}
         </Card>
         );
     }
