@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
+import MenuControl from './MenuControl';
 
 class ButtonInput extends React.Component {
 
@@ -25,6 +26,7 @@ class ButtonInput extends React.Component {
     render() {
         return (
             <div className="buttonInput">
+            {/* <MenuControl visibility={!this.state.isEdit}/> */}
                 <Button variant="contained" color="primary" style={{marginTop: '6vh'}}>
                     {
                         this.state.isEdit ? <input 

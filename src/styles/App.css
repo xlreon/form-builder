@@ -24,11 +24,11 @@
 }
 
 .textBox {
-  width: 50vh;
+  width: 70vh;
   margin-top: 0.5em;
   height: 4vh;
+  margin-right: 2em;
 }
-
 #textInput {
   height: 100%;
   width: 100%;

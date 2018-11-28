@@ -4,6 +4,7 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import Radio from '@material-ui/core/Radio';
 import LabelInput from './LabelInput';
+import MenuControl from './MenuControl';
 
 class RadioInput extends React.Component {
     constructor(props) {
@@ -79,6 +80,7 @@ class RadioInput extends React.Component {
     render() {
         return (
             <div className="textBox">
+                {/* <MenuControl visibility={this.state.current ==  1 ? true : false}/> */}
                 {this.getCurrent(this.state.current)}
             </div>
         );

@@ -1,6 +1,7 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Select from '@material-ui/core/Select';
+import MenuControl from './MenuControl';
 
 class DropDownInput extends React.Component {
     constructor(props) {
@@ -106,6 +107,7 @@ class DropDownInput extends React.Component {
     render() {
         return (
             <div className="textBox">
+            {/* <MenuControl visibility={this.state.current == 2 ? true : false}/> */}
                 {this.getCurrent(this.state.current)}
             </div>
         );

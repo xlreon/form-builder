@@ -1,5 +1,6 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
+import MenuControl from './MenuControl';
 
 class Input extends React.Component {
     constructor(props) {
@@ -26,6 +27,8 @@ class Input extends React.Component {
     }
     render() {
         return (
+            // <span>
+            // <MenuControl visibility={!this.state.isEdit}/>
             <div className="textBox">
                 { this.state.isEdit 
                     ?
@@ -48,6 +51,7 @@ class Input extends React.Component {
                         />
                 }
             </div>
+            // </span>
         );
     }
 }

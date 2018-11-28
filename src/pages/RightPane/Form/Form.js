@@ -32,10 +32,6 @@ const styles = {
 
 class Form extends React.Component {
     
-    constructor(props) {
-        super(props)
-    }
-
     onDrop = (event) => {
         var itemName = event.dataTransfer.getData("itemName")
         this.props.dispatch({type: "ADDITEM", item: itemName})
