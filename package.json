@@ -5,7 +5,11 @@
   "dependencies": {
     "@material-ui/core": "^3.6.0",
     "react": "^16.6.3",
+    "react-dnd": "^7.0.0",
+    "react-dnd-html5-backend": "^7.0.0",
     "react-dom": "^16.6.3",
+    "react-drag-and-drop": "^2.4.0",
+    "react-redux": "^5.1.1",
     "react-scripts": "2.1.1"
   },
   "scripts": {

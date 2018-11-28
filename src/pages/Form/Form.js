@@ -28,16 +28,25 @@ class Form extends React.Component {
         super(props)
     }
 
-    onDrop = (data) => {
-        console.log('adding')
-        this.props.dispatch({type: "ADDITEM", item: "item"})
+    onDrop = (event) => {
+        var itemName = event.dataTransfer.getData("itemName")
+        console.log(itemName)
+        this.props.dispatch({type: "ADDITEM", item: itemName})
+    }
+
+    onDragOver = (event) => {
+        event.preventDefault();
     }
 
     render() {
         const { classes, elements } = this.props;
         console.log(elements)
         return (
-        <Card className={classes.card} onClick={this.onDrop.bind(this)}>
+        <Card 
+            className={classes.card} 
+            onDragOver={(e) => this.onDragOver(e)}
+            onDrop={(e) => this.onDrop(e)}
+            >
             {elements.map( item => {
                 return <h1>{item}</h1>
             })}

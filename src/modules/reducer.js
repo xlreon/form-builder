@@ -6,7 +6,8 @@ function reducer(state = initialState, action) {
         case "ADDITEM":
             console.log("in reducers")
             return {
-                elements: [action.item]
+                ...state,
+                elements: [...state.elements, action.item]
             }
         default :
             return state
