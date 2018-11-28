@@ -5,7 +5,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Divider from '@material-ui/core/Divider';
-import ButtonItem from '../../components/ButtonItem';
+import ButtonItem from '../../components/listItem';
 
 const styles = theme => ({
   root: {
@@ -17,16 +17,28 @@ const styles = theme => ({
   },
 });
 
-function LeftPane(props) {
-  const { classes } = props;
-  return (
-    <div className={classes.root}>
-      <List component="nav">
-        <ButtonItem />
-        <Divider />
-      </List>
-    </div>
-  );
+class LeftPane extends React.Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      formItems: ["Button","Input","Text","Radio","Drop Down"]
+    }
+  }
+
+  render() {
+    const { classes } = this.props
+    return (
+      <div className={classes.root}>
+        <List component="nav">
+          {this.state.formItems.map(name => {
+            return <ButtonItem itemName={name}/>
+          })}
+        </List>
+      </div>
+    );
+  }
 }
 
 LeftPane.propTypes = {
