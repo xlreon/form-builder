@@ -26,7 +26,11 @@ class ButtonInput extends React.Component {
     render() {
         return (
             <div className="textBox">
-            <MenuControl id="menuBox" visibility={!this.state.isEdit}/>
+            <MenuControl 
+                id="menuBox" 
+                visibility={!this.state.isEdit}
+                index={this.props.index}
+                />
                 <Button variant="contained" color="primary">
                     {
                         this.state.isEdit ? <input 

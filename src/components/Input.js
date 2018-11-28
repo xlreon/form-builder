@@ -48,7 +48,11 @@ class Input extends React.Component {
                         onChange={this.handleValue}
                         />
                 }
-                <MenuControl id="menuBox" visibility={!this.state.isEdit}/>
+                <MenuControl 
+                    id="menuBox" 
+                    visibility={!this.state.isEdit}
+                    index={this.props.index}
+                    />
             </div>
         );
     }

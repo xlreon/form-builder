@@ -42,21 +42,20 @@ class Form extends React.Component {
         event.preventDefault();
     }
 
-    itemBuilder = (itemName) => {
-        console.log(itemName)
+    itemBuilder = (itemName,index) => {
         switch(itemName) {
             case 'Button':
                 return (<div>
-                            <ButtonInput />
+                            <ButtonInput index={index}/>
                         </div>)
             case 'Text':
-                return <div><TextInput /></div>
+                return <div><TextInput index={index}/></div>
             case 'Input':
-                return <div><Input /></div>
+                return <div><Input index={index}/></div>
             case 'Radio':
-                return <div><RadioInput /></div>
+                return <div><RadioInput index={index}/></div>
             case 'Drop Down':
-                return <div><DropDownInput /></div>
+                return <div><DropDownInput index={index}/></div>
             default:
                 return <h1>{itemName}</h1>
         }
@@ -71,8 +70,8 @@ class Form extends React.Component {
             onDragOver={(e) => this.onDragOver(e)}
             onDrop={(e) => this.onDrop(e)}
             >
-            {elements.map( item => {
-                return this.itemBuilder(item)
+            {elements.map( (item,index) => {
+                return this.itemBuilder(item,index)
             })}
         </Card>
         );

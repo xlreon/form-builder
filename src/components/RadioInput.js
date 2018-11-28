@@ -80,7 +80,11 @@ class RadioInput extends React.Component {
     render() {
         return (
             <div className="textBox">
-                <MenuControl id="menuBox" visibility={this.state.current === 1 ? true : false}/>
+                <MenuControl 
+                    id="menuBox" 
+                    visibility={this.state.current === 1 ? true : false}
+                    index={this.props.index}
+                    />
                 {this.getCurrent(this.state.current)}
             </div>
         );

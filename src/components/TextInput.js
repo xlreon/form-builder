@@ -41,7 +41,11 @@ class TextInput extends React.Component {
                         }
                     </span> 
                     }
-                <MenuControl id="menuBox" visibility={!this.state.isEdit}/>
+                <MenuControl 
+                    id="menuBox" 
+                    visibility={!this.state.isEdit}
+                    index={this.props.index}
+                    />
             </div>
         );
     }
