@@ -19,7 +19,8 @@ class RadioInput extends React.Component {
     }
 
     handleChange = (event) => {
-        this.setState({number: event.target.value})
+        let val = parseInt(event.target.value)
+        this.setState({number: val < 0 ? 0 : val})
     }
 
     handleRadio = (event) => {

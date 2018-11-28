@@ -1,6 +1,5 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
-import MenuItem from '@material-ui/core/Menu';
 import Select from '@material-ui/core/Select';
 
 class DropDownInput extends React.Component {
@@ -17,7 +16,8 @@ class DropDownInput extends React.Component {
     }
 
     handleChange = (event) => {
-        this.setState({number: event.target.value})
+        let val = parseInt(event.target.value)
+        this.setState({number: val < 0 ? 0 : val})
     }
 
     handleMenu = (event) => {
