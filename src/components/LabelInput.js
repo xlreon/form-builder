@@ -5,9 +5,41 @@ class LabelInput extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isEdit: true,
-            text: ""
+            isEdit: this.getEditState(),
+            text: this.getLabel()
         }
+    }
+
+    getEditState = () => {
+        var edit = true
+        if(this.props.formData !== undefined) {
+            this.props.formData.map((ele,ind) => {
+                if(ind === this.props.radioIndex) {
+                    ele.value.map((e) => {
+                        if (e.label===this.props.labelIndex && e.value !== "") {
+                            edit = false
+                        }
+                    })
+                }
+            })
+        }
+        return edit
+    }
+
+    getLabel = () => {
+        var label = ""
+        if(this.props.formData !== undefined) {
+            this.props.formData.map((ele,ind) => {
+                if(ind === this.props.radioIndex) {
+                    ele.value.map((e) => {
+                        if (e.label===this.props.labelIndex) {
+                            label = e.value
+                        }
+                    })
+                }
+            })
+        } 
+        return label
     }
 
     handleChange = (event) => {
@@ -41,4 +73,8 @@ class LabelInput extends React.Component {
     }
 }
 
-export default connect()(LabelInput)
+const mapStateToProps = state => ({
+    formData: state.formData
+});
+
+export default connect(mapStateToProps)(LabelInput)

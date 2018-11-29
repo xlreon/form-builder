@@ -3,8 +3,7 @@ import reducer from './reducer';
 
 const initialState = {
     elements: [],
-    formData: [],
-    shoudRender: []
+    formData: []
 }
 
 const store = createStore(reducer)

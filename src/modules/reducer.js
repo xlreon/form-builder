@@ -9,11 +9,9 @@ function reducer(state = initialState, action) {
                 elements: [...state.elements, action.item],
             }
             case "SETITEM":
-            console.log("shouldRender",[...state.shoudRender])
             return {
                 ...state,
-                formData: [...state.formData, action.data],
-                shouldRender: [...state.shoudRender, false]
+                formData: [...state.formData, action.data]
             }
         case "UPDATELABEL":
             return {

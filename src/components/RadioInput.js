@@ -10,14 +10,36 @@ import { connect } from 'react-redux';
 class RadioInput extends React.Component {
     constructor(props) {
         super(props);
-
+        console.log(this.getRadioCount(),this.getCurrent())
         this.state = {
-            number: 0,
-            current: 0,
-            isEdit: true,
-            label: "Male",
+            number: this.getRadioCount(),
+            current: this.getCur(),
             selected: 0
         }
+    }
+
+    getRadioCount = () => {
+        var num = 0
+        if(this.props.formData !== undefined) {
+            this.props.formData.map((ele,ind) => {
+                if(ind === this.props.index) {
+                    num = ele.value.length
+                }
+            })
+        } 
+        return num
+    }
+
+    getCur = () => {
+        var curr = 0
+        if(this.props.formData !== undefined) {
+            this.props.formData.map((ele,ind) => {
+                if(ind === this.props.index) {
+                    curr = 1
+                }
+            })
+        }
+        return curr
     }
 
     handleChange = (event) => {
@@ -104,4 +126,8 @@ class RadioInput extends React.Component {
     }
 }
 
-export default connect()(RadioInput);
+const mapStateToProps = state => ({
+    formData: state.formData
+});
+
+export default connect(mapStateToProps)(RadioInput);
