@@ -2,6 +2,7 @@ import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Select from '@material-ui/core/Select';
 import MenuControl from './MenuControl';
+import { connect } from 'react-redux';
 
 class DropDownInput extends React.Component {
     constructor(props) {
@@ -46,6 +47,14 @@ class DropDownInput extends React.Component {
         }
     }
 
+    generateDropDownData = (number) => {
+        var fieldArr = []
+        this.state.fields.map((ele,index) => {
+            fieldArr.push({id: index,value: ele})
+        })
+        return fieldArr;
+    }
+
     getCurrent = (current) => {
         switch (current) {
             case 0:
@@ -75,6 +84,7 @@ class DropDownInput extends React.Component {
                         /> 
                         )
             case 2:
+                this.props.dispatch({type: "SETITEM", item: "DropDown", data: {item: "DropDown",value: this.generateDropDownData(this.state.number)}})
                 return this.generateMenu(this.state.number)
             default:
                     return
@@ -118,4 +128,4 @@ class DropDownInput extends React.Component {
     }
 }
 
-export default DropDownInput;
+export default connect()(DropDownInput);

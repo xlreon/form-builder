@@ -33,7 +33,7 @@ class RadioInput extends React.Component {
         if (event.keyCode == 13)
         {
             this.setState({current: 1})
-            this.props.dispatch({type: "SETITEM", item: "Radio", data: {item: "Input",value: this.generateRadioData(this.state.number)}})
+            this.props.dispatch({type: "SETITEM", item: "Radio", data: {item: "Radio",value: this.generateRadioData(this.state.number)}})
         }
         
     }

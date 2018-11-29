@@ -19,7 +19,6 @@ function reducer(state = initialState, action) {
                 formData: [...state.formData, action.data] 
             }
         case "UPDATELABEL":
-            console.log("In update label",action.radioIndex,action.labelIndex)
             return {
                 ...state,
                 formData: [...state.formData.map((element,index) => {
@@ -39,7 +38,6 @@ function reducer(state = initialState, action) {
                                             )
                             ]
             }
-
         case "DELETE":
             return {
                 ...state,

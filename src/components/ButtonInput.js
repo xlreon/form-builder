@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import MenuControl from './MenuControl';
+import { connect } from 'react-redux';
 
 class ButtonInput extends React.Component {
 
@@ -20,6 +21,7 @@ class ButtonInput extends React.Component {
     setButtonText = (event) => {
         if (event.keyCode == 13) {
             this.setState({isEdit: false})
+            this.props.dispatch({type: "SETITEM", item: "Button", data: {item: "Button",value: this.state.buttonText}})
         } 
     }
 
@@ -48,4 +50,4 @@ class ButtonInput extends React.Component {
     }
 }
 
-export default ButtonInput;
+export default connect()(ButtonInput);
