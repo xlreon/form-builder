@@ -9,12 +9,50 @@ class DropDownInput extends React.Component {
         super(props);
 
         this.state = {
-            number: 0,
-            current: 0,
-            fields: [],
+            number: this.getMenuCount(),
+            current: this.getCur(),
+            fields: this.getField(),
             menuValue: "",
             selected: 0
         }
+    }
+
+    getMenuCount = () => {
+        var num = 0
+        if(this.props.formData !== undefined) {
+            this.props.formData.map((ele,ind) => {
+                if(ind === this.props.index) {
+                    num = ele.value.length
+                }
+            })
+        } 
+        return num
+    }
+
+    getCur = () => {
+        var curr = 0
+        if(this.props.formData !== undefined) {
+            this.props.formData.map((ele,ind) => {
+                if(ind === this.props.index) {
+                    curr = 2
+                }
+            })
+        }
+        return curr
+    }
+
+    getField = () => {
+        var fd = []
+        if(this.props.formData !== undefined) {
+            this.props.formData.map((ele,ind) => {
+                if(ind === this.props.index) {
+                    ele.value.map((e) => {
+                        fd.push(e.value)
+                    })
+                }
+            })
+        }
+        return fd
     }
 
     handleChange = (event) => {
@@ -38,12 +76,13 @@ class DropDownInput extends React.Component {
     onAddMenu = (event) => {
         if(event.keyCode == 13)
         {
-            if (this.state.fields.length == this.state.number-1) {
-                this.setState({fields: this.state.fields.concat([this.state.menuValue]),menuValue: "",current: 2})
+            console.log(this.state.fields)
+            if (this.state.fields.length !== this.state.number) {
+                this.state.fields.push(this.state.menuValue)
+                this.setState({menuValue: "",current: 1})
             }
-            else {
-                this.setState({fields: this.state.fields.concat([this.state.menuValue]),menuValue: ""})
-            }
+            this.setState({menuValue: "",current: 2})
+            this.props.dispatch({type: "SETITEM", item: "DropDown", data: {item: "DropDown",value: this.generateDropDownData(this.state.number)}})
         }
     }
 
@@ -84,7 +123,6 @@ class DropDownInput extends React.Component {
                         /> 
                         )
             case 2:
-                this.props.dispatch({type: "SETITEM", item: "DropDown", data: {item: "DropDown",value: this.generateDropDownData(this.state.number)}})
                 return this.generateMenu(this.state.number)
             default:
                     return
@@ -128,4 +166,8 @@ class DropDownInput extends React.Component {
     }
 }
 
-export default connect()(DropDownInput);
+const mapStateToProps = state => ({
+    formData: state.formData
+});
+
+export default connect(mapStateToProps)(DropDownInput);
