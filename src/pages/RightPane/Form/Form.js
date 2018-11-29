@@ -43,6 +43,7 @@ class Form extends React.Component {
     }
 
     itemBuilder = (itemName,index) => {
+        itemName = itemName.replace(/[0-9]/g, '');
         switch(itemName) {
             case 'Button':
                 return (<div>

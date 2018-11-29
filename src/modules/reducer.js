@@ -6,7 +6,7 @@ function reducer(state = initialState, action) {
         case "ADDITEM":
             return {
                 ...state,
-                elements: [...state.elements, action.item],
+                elements: [...state.elements, action.item+""+(state.elements.length)],
             }
             case "SETITEM":
             return {
@@ -40,9 +40,14 @@ function reducer(state = initialState, action) {
                 formData: [...state.formData.filter((ele,ind) => ind !== action.index)]
             }
         case "DOWN":
-        console.log("DOWN")
         var firstIndex = action.index
         var secondIndex = (action.index !== state.elements.length-1 ? action.index+1:action.index)
+        console.log("DOWN",firstIndex,secondIndex)
+        console.log([...state.elements.map(function(element, index) {
+            if (index === firstIndex) return state.elements[secondIndex];
+            else if (index === secondIndex) return state.elements[firstIndex];
+            else return element;
+            })])
         return {
             ...state,
             elements: [...state.elements.map(function(element, index) {
