@@ -9,9 +9,32 @@ class ButtonInput extends React.Component {
         super(props);
 
         this.state = {
-            isEdit: true,
-            buttonText: ""
+            isEdit: this.getEditState(),
+            buttonText: this.getText()
         }
+    }
+
+    getText = () => {
+        var val = ""
+        if (this.props.formData !== undefined)
+            this.props.formData.map((ele,index) => {
+                if (index === this.props.index) {
+                    val = ele.value
+                }
+            })
+        return val
+    }
+
+    getEditState = () => {
+        var edit = true
+        if(this.props.formData !== undefined) {
+            this.props.formData.map((ele,ind) => {
+                if(ind === this.props.index) {
+                    edit = false
+                }
+            })
+        }
+        return edit
     }
 
     handleChange = (event) => {
@@ -50,4 +73,8 @@ class ButtonInput extends React.Component {
     }
 }
 
-export default connect()(ButtonInput);
+const mapStateToProps = state => ({
+    formData: state.formData
+});
+
+export default connect(mapStateToProps)(ButtonInput);
