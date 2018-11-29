@@ -22,7 +22,6 @@ function reducer(state = initialState, action) {
                                                     labelArray.map((l) => {
                                                         if(l.label===action.labelIndex) {
                                                             l.value = action.labelValue
-                                                            console.log(l.value)
                                                         }
                                                         return l;
                                                     }
@@ -42,12 +41,6 @@ function reducer(state = initialState, action) {
         case "DOWN":
         var firstIndex = action.index
         var secondIndex = (action.index !== state.elements.length-1 ? action.index+1:action.index)
-        console.log("DOWN",firstIndex,secondIndex)
-        console.log([...state.elements.map(function(element, index) {
-            if (index === firstIndex) return state.elements[secondIndex];
-            else if (index === secondIndex) return state.elements[firstIndex];
-            else return element;
-            })])
         return {
             ...state,
             elements: [...state.elements.map(function(element, index) {
@@ -62,7 +55,6 @@ function reducer(state = initialState, action) {
                     })]
                 }
         case "UP":
-            console.log("UP")
             firstIndex = (action.index !== 0 ? action.index-1:0)
             secondIndex = action.index
             return {

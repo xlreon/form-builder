@@ -10,7 +10,6 @@ import { connect } from 'react-redux';
 class RadioInput extends React.Component {
     constructor(props) {
         super(props);
-        console.log(this.getRadioCount(),this.getCurrent())
         this.state = {
             number: this.getRadioCount(),
             current: this.getCur(),
@@ -94,7 +93,6 @@ class RadioInput extends React.Component {
         
         var fields = []
         for(var i=0;i<number;i++) {
-            console.log(i)
             fields.push(<FormControlLabel
                         value={i}
                         style={{width: '3vh'}}

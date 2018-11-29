@@ -31,7 +31,6 @@ class Header extends React.Component {
     document.body.appendChild(downloadAnchorNode); // required for firefox
     downloadAnchorNode.click();
     downloadAnchorNode.remove();
-    console.log(JSON.stringify(this.props.formData))
   }
 
   render() {

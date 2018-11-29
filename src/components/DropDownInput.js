@@ -77,13 +77,8 @@ class DropDownInput extends React.Component {
         if(event.keyCode == 13)
         {
             if (this.state.fields.length < this.state.number) {
-                console.log("in enter mode")
                 this.setState({fields: this.state.fields.concat([this.state.menuValue]),menuValue: ""})
             }
-            // else {
-            //     this.setState({menuValue: "",current: 2})
-            //     this.props.dispatch({type: "SETITEM", item: "DropDown", data: {item: "DropDown",value: this.generateDropDownData(this.state.number)}})
-            // }
         }
     }
 

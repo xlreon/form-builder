@@ -40,7 +40,6 @@ class MenuControl extends React.Component {
 
     render() {
         const { classes, visibility } = this.props;
-        console.log(visibility)
         return (
             <span className={visibility ? classes.menuVisible : classes.menuGone}>
                 <Fab 
