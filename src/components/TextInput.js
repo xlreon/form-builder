@@ -30,7 +30,8 @@ class TextInput extends React.Component {
         if (this.props.formData !== undefined)
             this.props.formData.map((ele,index) => {
                 if (index === this.props.index) {
-                    val = ele.value
+                    if(ele !== undefined)
+                        val = ele.value
                 }
             })
         return val

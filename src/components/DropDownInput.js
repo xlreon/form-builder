@@ -76,13 +76,14 @@ class DropDownInput extends React.Component {
     onAddMenu = (event) => {
         if(event.keyCode == 13)
         {
-            console.log(this.state.fields)
-            if (this.state.fields.length !== this.state.number) {
-                this.state.fields.push(this.state.menuValue)
-                this.setState({menuValue: "",current: 1})
+            if (this.state.fields.length < this.state.number) {
+                console.log("in enter mode")
+                this.setState({fields: this.state.fields.concat([this.state.menuValue]),menuValue: ""})
             }
-            this.setState({menuValue: "",current: 2})
-            this.props.dispatch({type: "SETITEM", item: "DropDown", data: {item: "DropDown",value: this.generateDropDownData(this.state.number)}})
+            // else {
+            //     this.setState({menuValue: "",current: 2})
+            //     this.props.dispatch({type: "SETITEM", item: "DropDown", data: {item: "DropDown",value: this.generateDropDownData(this.state.number)}})
+            // }
         }
     }
 
@@ -109,8 +110,14 @@ class DropDownInput extends React.Component {
                     id="textInput"
                     />
                 );
+                break;
             case 1:
-                var pl = "Enter " + (this.state.fields.length + 1) + " Menu item and press enter"
+            if(this.state.fields.length === this.state.number) {
+                this.setState({menuValue: "",current: 2})
+                this.props.dispatch({type: "SETITEM", item: "DropDown", data: {item: "DropDown",value: this.generateDropDownData(this.state.number)}}) 
+            }
+            else {
+                var pl = "Enter " + (this.state.fields.length+1) + " Menu item and press enter"
                 return (
                         <TextField
                         label={pl}
@@ -122,8 +129,11 @@ class DropDownInput extends React.Component {
                         id="textInput"
                         /> 
                         )
+            }
+                break;
             case 2:
                 return this.generateMenu(this.state.number)
+                break;
             default:
                     return
         }
