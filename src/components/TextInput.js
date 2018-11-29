@@ -55,7 +55,7 @@ class TextInput extends React.Component {
                 { this.state.isEdit 
                     ?
                     <TextField
-                    label="Enter Text and press enter"
+                    label="Enter Text"
                     name="text"
                     margin="normal"
                     value={this.state.text}

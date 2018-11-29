@@ -100,7 +100,7 @@ class DropDownInput extends React.Component {
             case 0:
                 return (
                     <TextField
-                    label="Enter How many in group and press enter"
+                    label="Enter How many in group"
                     name="text"
                     margin="normal"
                     type="number"

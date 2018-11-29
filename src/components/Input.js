@@ -58,7 +58,7 @@ class Input extends React.Component {
                 { this.state.isEdit 
                     ?
                     <TextField
-                    label="Enter Input placeholder and press enter"
+                    label="Enter Input placeholder"
                     name="input"
                     margin="normal"
                     value={this.state.text}

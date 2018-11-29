@@ -9,7 +9,6 @@ import Input from '../../../components/Input';
 import RadioInput from '../../../components/RadioInput';
 import DropDownInput from '../../../components/DropDownInput';
 
-
 const styles = {
   card: {
     minWidth: '80vh',
@@ -47,7 +46,7 @@ class Form extends React.Component {
         switch(itemName) {
             case 'Button':
                 return (<div>
-                            <ButtonInput index={index}/>
+                            <ButtonInput index={index} />
                         </div>)
             case 'Text':
                 return <div><TextInput index={index}/></div>
