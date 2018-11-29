@@ -1,22 +1,19 @@
 import { initialState } from './store';
 
-function deleteAtIndex(elements,index) {
-    return elements.splice(index,1)
-}
-
 function reducer(state = initialState, action) {
     
     switch(action.type) {
         case "ADDITEM":
             return {
                 ...state,
-                elements: [...state.elements, action.item]
+                elements: [...state.elements, action.item],
             }
-        case "SETITEM":
-            console.log([...state.formData, action.data] )
+            case "SETITEM":
+            console.log("shouldRender",[...state.shoudRender])
             return {
                 ...state,
-                formData: [...state.formData, action.data] 
+                formData: [...state.formData, action.data],
+                shouldRender: [...state.shoudRender, false]
             }
         case "UPDATELABEL":
             return {
@@ -41,12 +38,44 @@ function reducer(state = initialState, action) {
         case "DELETE":
             return {
                 ...state,
-                elements: [...state.elements.splice(action.index,1)]
+                elements: [...state.elements.filter((ele,ind) => ind !== action.index)],
+                formData: [...state.formData.filter((ele,ind) => ind !== action.index)]
             }
         case "DOWN":
-            return state
+        console.log("DOWN")
+        var firstIndex = action.index
+        var secondIndex = (action.index !== state.elements.length-1 ? action.index+1:action.index)
+        return {
+            ...state,
+            elements: [...state.elements.map(function(element, index) {
+                if (index === firstIndex) return state.elements[secondIndex];
+                else if (index === secondIndex) return state.elements[firstIndex];
+                else return element;
+                })],
+            formData: [...state.formData.map(function(element, index) {
+                    if (index === firstIndex) return state.formData[secondIndex];
+                    else if (index === secondIndex) return state.formData[firstIndex];
+                    else return element;
+                    })]
+                }
         case "UP":
-            return state
+            console.log("UP")
+            firstIndex = (action.index !== 0 ? action.index-1:0)
+            secondIndex = action.index
+            return {
+                ...state,
+                elements: [...state.elements.map(function(element, index) {
+                    if (index === firstIndex) return state.elements[secondIndex];
+                    else if (index === secondIndex) return state.elements[firstIndex];
+                    else return element;
+                    })],
+                formData: [...state.formData.map(function(element, index) {
+                        if (index === firstIndex) return state.formData[secondIndex];
+                        else if (index === secondIndex) return state.formData[firstIndex];
+                        else return element;
+                        })]
+
+            }
         default :
             return state
     }

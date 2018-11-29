@@ -8,10 +8,33 @@ class Input extends React.Component {
         super(props);
 
         this.state = {
-            text: "",
-            isEdit: true,
+            text: this.getText(),
+            isEdit: this.getEditState(),
             value: ""
         }
+    }
+
+    getEditState = () => {
+        var edit = true
+        if(this.props.formData !== undefined) {
+            this.props.formData.map((ele,ind) => {
+                if(ind === this.props.index) {
+                    edit = false
+                }
+            })
+        }
+        return edit
+    }
+
+    getText = () => {
+        var val = ""
+        if (this.props.formData !== undefined)
+            this.props.formData.map((ele,index) => {
+                if (index === this.props.index) {
+                    val = ele.value
+                }
+            })
+        return val
     }
 
     handleChange = (event) => {
@@ -62,4 +85,9 @@ class Input extends React.Component {
     }
 }
 
-export default connect()(Input)
+const mapStateToProps = state => ({
+    shouldRender: state.shouldRender,
+    formData: state.formData
+});
+
+export default connect(mapStateToProps)(Input)
