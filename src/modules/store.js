@@ -2,7 +2,8 @@ import { createStore } from 'redux'
 import reducer from './reducer';
 
 const initialState = {
-    elements: []
+    elements: [],
+    formData: []
 }
 
 const store = createStore(reducer)

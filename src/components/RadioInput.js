@@ -5,6 +5,7 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import Radio from '@material-ui/core/Radio';
 import LabelInput from './LabelInput';
 import MenuControl from './MenuControl';
+import { connect } from 'react-redux';
 
 class RadioInput extends React.Component {
     constructor(props) {
@@ -30,7 +31,19 @@ class RadioInput extends React.Component {
 
     onEnter = (event) => {
         if (event.keyCode == 13)
+        {
             this.setState({current: 1})
+            this.props.dispatch({type: "SETITEM", item: "Radio", data: {item: "Input",value: this.generateRadioData(this.state.number)}})
+        }
+        
+    }
+
+    generateRadioData = (number) => {
+        var labelArr = []
+        for(var i=0;i<number;i++) {
+            labelArr.push({label: i,value: ""})
+        }
+        return labelArr;
     }
 
     getCurrent = (current) => {
@@ -64,7 +77,7 @@ class RadioInput extends React.Component {
                         value={i}
                         style={{width: '3vh'}}
                         control={<Radio color="primary" />}
-                        label={<LabelInput/>} />)
+                        label={<LabelInput radioIndex={this.props.index} labelIndex={i}/>} />)
         }
         
         return (
@@ -91,4 +104,4 @@ class RadioInput extends React.Component {
     }
 }
 
-export default RadioInput;
+export default connect()(RadioInput);

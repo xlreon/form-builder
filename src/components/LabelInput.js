@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 class LabelInput extends React.Component {
     constructor(props) {
@@ -16,6 +17,7 @@ class LabelInput extends React.Component {
     onEnter = (event) => {
         if(event.keyCode == 13) {
             this.setState({isEdit: false})
+            this.props.dispatch({type: "UPDATELABEL",labelIndex: this.props.labelIndex,radioIndex: this.props.radioIndex,labelValue: this.state.text})
         }
     }
 
@@ -39,4 +41,4 @@ class LabelInput extends React.Component {
     }
 }
 
-export default LabelInput
+export default connect()(LabelInput)

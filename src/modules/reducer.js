@@ -12,6 +12,34 @@ function reducer(state = initialState, action) {
                 ...state,
                 elements: [...state.elements, action.item]
             }
+        case "SETITEM":
+            console.log([...state.formData, action.data] )
+            return {
+                ...state,
+                formData: [...state.formData, action.data] 
+            }
+        case "UPDATELABEL":
+            console.log("In update label",action.radioIndex,action.labelIndex)
+            return {
+                ...state,
+                formData: [...state.formData.map((element,index) => {
+                                                if (index === action.radioIndex) {
+                                                    var labelArray = element.value
+                                                    labelArray.map((l) => {
+                                                        if(l.label===action.labelIndex) {
+                                                            l.value = action.labelValue
+                                                            console.log(l.value)
+                                                        }
+                                                        return l;
+                                                    }
+                                                    )
+                                                }
+                                                return element;
+                                            }
+                                            )
+                            ]
+            }
+
         case "DELETE":
             return {
                 ...state,

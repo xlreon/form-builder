@@ -1,6 +1,7 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField'
 import MenuControl from './MenuControl';
+import { connect } from 'react-redux';
 
 class TextInput extends React.Component {
     constructor(props) {
@@ -18,7 +19,11 @@ class TextInput extends React.Component {
 
     onEnter = (event) => {
         if (event.keyCode == 13)
-            this.setState({isEdit: false})
+            {
+                this.setState({isEdit: false})
+                this.props.dispatch({type: "SETITEM", item: "Text", data: {item: "Text",value: this.state.text}})
+            }
+
     }
     render() {
         return (
@@ -51,4 +56,4 @@ class TextInput extends React.Component {
     }
 }
 
-export default TextInput;
+export default connect()(TextInput);
